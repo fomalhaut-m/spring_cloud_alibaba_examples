@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      config:
+        enabled: true
+        fail-fast: false
+      discovery:
+        enabled: true
+
+app:
+  name: Nacos云端配置
+  version: 2.0.0
+  desc: 从Nacos配置中心获取

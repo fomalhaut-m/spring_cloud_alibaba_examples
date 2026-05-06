@@ -1,0 +1,19 @@
+spring:
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.yml
+      - optional:file:./application-local.yml
+
+app:
+  name: 本地兜底配置
+  version: 1.0.0
+  desc: 本地无Nacos也能正常运行
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

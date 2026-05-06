@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: reactive-service-provider
+  profiles:
+    active: local
+
+server:
+  port: 8084
