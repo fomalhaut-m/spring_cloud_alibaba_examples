@@ -12,7 +12,7 @@
 
     <artifactId>consumer</artifactId>
     <packaging>jar</packaging>
-    <name>Feign Consumer</name>
+    <name>服务消费者</name>
 
     <dependencies>
         <dependency>
@@ -41,4 +41,21 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

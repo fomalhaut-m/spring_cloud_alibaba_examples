@@ -12,7 +12,7 @@
 
     <artifactId>reactive-provider</artifactId>
     <packaging>jar</packaging>
-    <name>Reactive Feign Provider</name>
+    <name>响应式服务提供者</name>
 
     <dependencies>
         <dependency>
@@ -25,4 +25,13 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

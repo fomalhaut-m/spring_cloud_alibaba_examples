@@ -3,14 +3,12 @@ package com.example.loadbalancer.controller;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.ReactiveDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancer;
-import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
+import org.springframework.cloud.loadbalancer.core.ReactorLoadBalancer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
@@ -96,24 +94,5 @@ public class LBController {
                     "services", services,
                     "count", services.size()
                 ));
-    }
-
-    @GetMapping("/instances/{serviceName}")
-    public Flux<Map<String, Object>> getInstances(@PathVariable String serviceName) {
-        return reactiveDiscoveryClient.getInstances(serviceName)
-                .map(instance -> Map.<String, Object>of(
-                    "host", instance.getHost(),
-                    "port", instance.getPort(),
-                    "serviceId", instance.getServiceId(),
-                    "metadata", instance.getMetadata()
-                ));
-    }
-
-    @GetMapping("/health")
-    public Mono<Map<String, String>> health() {
-        return Mono.just(Map.of(
-            "status", "UP",
-            "service", serviceName
-        ));
     }
 }

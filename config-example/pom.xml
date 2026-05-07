@@ -15,7 +15,7 @@
     <artifactId>spring-cloud-alibaba-nacos-config-example</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>Nacos Config Example</name>
+    <name>Nacos配置中心示例</name>
     <description>Nacos配置中心核心示例</description>
 
     <properties>
@@ -47,7 +47,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-configuration-processor</artifactId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 

@@ -15,7 +15,7 @@
     <artifactId>spring-cloud-alibaba-discovery-example</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>Nacos Discovery Example</name>
+    <name>Nacos服务注册发现示例</name>
     <description>Nacos服务注册发现示例</description>
 
     <properties>

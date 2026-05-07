@@ -15,7 +15,7 @@
     <artifactId>spring-cloud-alibaba-feign-example</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>Feign Example</name>
+    <name>同步OpenFeign服务调用示例</name>
     <description>同步OpenFeign服务调用示例</description>
 
     <modules>

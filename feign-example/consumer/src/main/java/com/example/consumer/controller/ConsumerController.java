@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -25,24 +24,26 @@ public class ConsumerController {
 
     @GetMapping("/feign/{msg}")
     public Map<String, Object> feignEcho(@PathVariable String msg) {
-        Map<String, Object> result = new HashMap<>();
         try {
             Map<String, Object> providerResponse = providerFeignClient.echo(msg);
-            result.put("success", true);
-            result.put("provider", providerResponse);
-            result.put("consumer", serviceName);
+            return Map.of(
+                "success", true,
+                "provider", providerResponse,
+                "consumer", serviceName
+            );
         } catch (Exception e) {
-            result.put("success", false);
-            result.put("error", e.getMessage());
+            return Map.of(
+                "success", false,
+                "error", e.getMessage()
+            );
         }
-        return result;
     }
 
     @GetMapping("/health")
     public Map<String, String> health() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "UP");
-        result.put("service", serviceName);
-        return result;
+        return Map.of(
+            "status", "UP",
+            "service", serviceName
+        );
     }
 }

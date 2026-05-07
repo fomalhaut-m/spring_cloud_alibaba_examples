@@ -15,7 +15,7 @@
     <artifactId>spring-cloud-alibaba-loadbalancer-example</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>LoadBalancer Example</name>
+    <name>全场景负载均衡示例</name>
     <description>全场景负载均衡示例</description>
 
     <properties>

@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -20,19 +19,19 @@ public class ConfigTestController {
 
     @GetMapping("/get")
     public Map<String, Object> getConfig() {
-        Map<String, Object> result = new HashMap<>();
-        result.put("name", appConfig.getName());
-        result.put("version", appConfig.getVersion());
-        result.put("desc", appConfig.getDesc());
-        result.put("source", "Nacos/Local");
-        return result;
+        return Map.of(
+            "name", appConfig.getName(),
+            "version", appConfig.getVersion(),
+            "desc", appConfig.getDesc(),
+            "source", "Nacos/Local"
+        );
     }
 
     @GetMapping("/health")
     public Map<String, String> health() {
-        Map<String, String> result = new HashMap<>();
-        result.put("status", "UP");
-        result.put("nacosEnabled", "true");
-        return result;
+        return Map.of(
+            "status", "UP",
+            "nacosEnabled", "true"
+        );
     }
 }

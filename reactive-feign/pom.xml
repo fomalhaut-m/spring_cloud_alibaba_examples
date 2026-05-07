@@ -15,7 +15,7 @@
     <artifactId>spring-cloud-alibaba-reactive-feign-example</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>Reactive Feign Example</name>
+    <name>响应式ReactiveFeign示例</name>
     <description>响应式ReactiveFeign示例</description>
 
     <modules>
