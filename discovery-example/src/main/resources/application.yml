@@ -2,7 +2,7 @@ spring:
   application:
     name: nacos-discovery-demo
   profiles:
-    active: local
+    active: @spring.profiles.active@
 
 server:
   port: 8081

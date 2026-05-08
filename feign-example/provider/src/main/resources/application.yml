@@ -2,7 +2,7 @@ spring:
   application:
     name: service-provider
   profiles:
-    active: local
+    active: @spring.profiles.active@
 
 server:
   port: 8082

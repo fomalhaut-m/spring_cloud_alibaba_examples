@@ -2,7 +2,7 @@ spring:
   application:
     name: nacos-config-demo
   profiles:
-    active: prod
+    active: @spring.profiles.active@
   config:
     import:
       - optional:nacos:${spring.application.name}.yml
