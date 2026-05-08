@@ -63,7 +63,7 @@ start_nacos() {
 
     if check_container_running; then
         echo "Nacos 容器已在运行中"
-        echo "访问地址: http://localhost:8848/nacos"
+        echo "访问地址: http://localhost:8080"
         return
     fi
 
@@ -94,7 +94,7 @@ start_nacos() {
         echo "=========================================="
         echo "  Nacos 启动成功！"
         echo "=========================================="
-        echo "  访问地址: http://localhost:8848/nacos"
+        echo "  访问地址: http://localhost:8080"
         echo "  默认账号: nacos"
         echo "  默认密码: nacos"
         echo "=========================================="
