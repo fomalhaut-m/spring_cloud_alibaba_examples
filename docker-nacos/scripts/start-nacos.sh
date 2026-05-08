@@ -2,12 +2,37 @@
 
 NACOS_CONTAINER_NAME="nacos-local"
 NACOS_VERSION="v3.0.3"
-NACOS_DATA_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/nacos-data"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NACOS_DATA_DIR="${SCRIPT_DIR}/../nacos-data"
+
+# 检测 Windows 环境
+is_windows() {
+    [[ "$(uname -s)" == *MINGW* ]] || [[ "$(uname -s)" == *CYGWIN* ]] || [[ -n "$MSYSTEM" ]]
+}
 
 check_docker() {
     if ! command -v docker &> /dev/null; then
-        echo "Docker 未安装，请先安装 Docker"
+        echo "Docker 未安装，请先安装 Docker Desktop"
         exit 1
+    fi
+    
+    # Windows 环境检查
+    if is_windows; then
+        # 检查 Docker Desktop 是否在 WSL2 模式下
+        if command -v wsl.exe &> /dev/null; then
+            if ! wsl.exe -d docker-desktop -- test -S /var/run/docker.sock 2>/dev/null; then
+                # 尝试直接在 Windows 上检查 Docker
+                if ! docker version &> /dev/null; then
+                    echo "Docker Desktop 未运行，请启动 Docker Desktop"
+                    exit 1
+                fi
+            fi
+        else
+            if ! docker version &> /dev/null; then
+                echo "Docker Desktop 未运行，请启动 Docker Desktop"
+                exit 1
+            fi
+        fi
     fi
 }
 
